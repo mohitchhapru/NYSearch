@@ -34,4 +34,17 @@ public class UsersController {
         userRepository.delete(userId);
         return HttpStatus.OK;
     }
+
+    @PatchMapping("/{userId}")
+    public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
+
+        User userFromDb = userRepository.findOne(userId);
+
+        userFromDb.setUserName(userRequest.getUserName());
+        userFromDb.setFirstName(userRequest.getFirstName());
+        userFromDb.setLastName(userRequest.getLastName());
+        userFromDb.setPassword(userRequest.getPassword());
+
+        return userRepository.save(userFromDb);
+    }
 }
