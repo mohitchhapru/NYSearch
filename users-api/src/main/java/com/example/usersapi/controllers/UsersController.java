@@ -29,7 +29,7 @@ public class UsersController {
         return userRepository.save(newUser);
     }
 
-    @DeleteMapping("/users/{userId}")
+    @DeleteMapping("/{userId}")
     public HttpStatus deleteUserById(@PathVariable Long userId) {
         userRepository.delete(userId);
         return HttpStatus.OK;
