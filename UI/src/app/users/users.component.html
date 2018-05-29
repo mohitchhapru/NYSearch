@@ -6,14 +6,78 @@
     <div class="col-md-4">
       <section class="login-form">
         <form method="post" action="#" role="login">          
-          <input type="email" name="email" placeholder="Username" required class="form-control input-lg" value="" />          
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
-          <div>
-            <a href="#">New User?</a>
-          </div>          
-        </form>
-      </section>  
-      </div>      
+
+          <div *ngIf="!showAddUserForm">          
+            <input               
+              name="Username" 
+              placeholder="Username"                
+              class="form-control input-lg" 
+              required>          
+            
+            <input 
+              type="password" 
+              class="form-control input-lg"                 
+              placeholder="Password" 
+              required>
+
+            <input 
+              type="button" 
+              value="Sign in"
+              class="btn btn-lg btn-primary btn-block">
+
+            <input 
+              type="button" 
+              class="btn btn-lg btn-light btn-block"
+              value="Sign Up" 
+              (click)="toggleAddUserForm()">
+          </div>
+                    
+          <div *ngIf="showAddUserForm">
+            <button 
+              type="button" 
+              class="close" 
+              aria-label="Close"
+              style="font-size: xx-large;margin-top: 0px;margin-bottom: 16px;"
+              (click)="toggleAddUserForm()">              
+              <span aria-hidden="true">&times;</span>
+            </button>
+            
+            <input 
+              type="text" 
+              name="First Name" 
+              class="form-control input-md"
+              placeholder="First Name"
+              required>
+              
+            <input 
+              type="text" 
+              name="Last Name" 
+              class="form-control input-md"
+              placeholder="Last Name"
+              required>
+
+            <input 
+              type="text" 
+              name="Username" 
+              class="form-control input-md"
+              placeholder="Username"
+              required>
+              
+            <input 
+              type="text" 
+              name="Password" 
+              class="form-control input-md"
+              placeholder="Password"
+              required>                              
+                
+            <input 
+              type="button"              
+              value="Sign Up"
+              class="btn btn-primary">
+          </div>
+          
+        </form>                
+      </section>        
+    </div>               
   </div>  
 </div>

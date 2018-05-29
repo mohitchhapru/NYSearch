@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  showAddUserForm: boolean;
 
-  constructor() { }
+  constructor() {
+    this.showAddUserForm = false;
+   }
 
   ngOnInit() {
+  }
+
+  toggleAddUserForm(){
+    console.log("toggleAddUserForm function called");        
+    this.showAddUserForm = !(this.showAddUserForm);    
   }
 
 }
