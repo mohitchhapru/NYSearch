@@ -1,83 +1,90 @@
 <div class="container">
-  
+
   <div class="row" id="pwd-container">
-    <div class="col-md-4"></div>
-    
+    <!-- <div class="col-md-4"></div> -->
+
     <div class="col-md-4">
       <section class="login-form">
-        <form method="post" action="#" role="login">          
+        <form method="post" action="#" role="login">
 
-          <div *ngIf="!showAddUserForm">          
-            <input               
-              name="Username" 
-              placeholder="Username"                
-              class="form-control input-lg" 
-              required>          
-            
-            <input 
-              type="password" 
-              class="form-control input-lg"                 
-              placeholder="Password" 
+          <div *ngIf="!showAddUserForm">
+            <input
+              name="Username"
+              placeholder="Username"
+              class="form-control input-lg"
               required>
 
-            <input 
-              type="button" 
+            <input
+              type="password"
+              class="form-control input-lg"
+              placeholder="Password"
+              required>
+
+            <input
+              type="button"
               value="Sign in"
               class="btn btn-lg btn-primary btn-block">
 
-            <input 
-              type="button" 
+            <input
+              type="button"
               class="btn btn-lg btn-light btn-block"
-              value="Sign Up" 
+              value="Sign Up"
               (click)="toggleAddUserForm()">
           </div>
-                    
+
           <div *ngIf="showAddUserForm">
-            <button 
-              type="button" 
-              class="close" 
+            <button
+              type="button"
+              class="close"
               aria-label="Close"
               style="font-size: xx-large;margin-top: 0px;margin-bottom: 16px;"
-              (click)="toggleAddUserForm()">              
+              (click)="toggleAddUserForm()">
               <span aria-hidden="true">&times;</span>
             </button>
-            
-            <input 
-              type="text" 
-              name="First Name" 
+
+            <input
+              type="text"
+              name="First Name"
               class="form-control input-md"
               placeholder="First Name"
               required>
-              
-            <input 
-              type="text" 
-              name="Last Name" 
+
+            <input
+              type="text"
+              name="Last Name"
               class="form-control input-md"
               placeholder="Last Name"
               required>
 
-            <input 
-              type="text" 
-              name="Username" 
+            <input
+              type="text"
+              name="Username"
               class="form-control input-md"
               placeholder="Username"
               required>
-              
-            <input 
-              type="text" 
-              name="Password" 
+
+            <input
+              type="text"
+              name="Password"
               class="form-control input-md"
               placeholder="Password"
-              required>                              
-                
-            <input 
-              type="button"              
+              required>
+
+            <input
+              type="button"
               value="Sign Up"
               class="btn btn-primary">
           </div>
-          
-        </form>                
-      </section>        
-    </div>               
-  </div>  
+
+        </form>
+      </section>
+    </div>
+
+    <div
+    style="height: 60px;"></div>
+    <app-user       
+      style=" width: 50%; float: right; "
+      *ngFor="let user of users" [user]='user'></app-user>
+
+  </div>
 </div>
