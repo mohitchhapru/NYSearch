@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UsersService} from '../users.service';
 
 @Component({
   selector: 'app-users',
@@ -7,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
   showAddUserForm: boolean;
+  users:any;
 
-  constructor() {
+  constructor(private userService:UsersService) {
     this.showAddUserForm = false;
    }
 
   ngOnInit() {
+    this.userService.allUsers()    
+    .subscribe(res => this.users=res.json());
   }
 
   toggleAddUserForm(){

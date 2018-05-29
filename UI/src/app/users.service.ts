@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { environment } from '../environments/environment'
 
 @Injectable()
 export class UsersService {
     constructor(private http:Http) { }
 
     allUsers(){
-        return this.http.get('/users/');
+        return this.http.get(`${environment.apihost}/users/`);
     }
 
     addUser(firstName, lastName, userName, password){
       console.log("Adding : "+userName+firstName+lastName);
-      return this.http.post('/users/',{          
+      return this.http.post(`${environment.apihost}/users/`,{          
           "firstName":firstName,
           "lastName":lastName,
           "userName": userName,
