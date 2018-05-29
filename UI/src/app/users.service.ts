@@ -34,4 +34,8 @@ export class UsersService {
           "password": password
         })
       }
+
+      getNYCityOpenData(){
+        return this.http.get(`https://data.cityofnewyork.us/resource/buex-bi6w.json`);
+      }
 }
