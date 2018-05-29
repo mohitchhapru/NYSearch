@@ -7,12 +7,14 @@ import { UsersComponent } from './users/users.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { UsersService } from './users.service';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
