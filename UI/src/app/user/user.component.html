@@ -1,68 +1,69 @@
 <div *ngIf="user" class="panel panel-primary" style="font-size:24px">
-  <div class="panel-heading">
-    {{user.userName}}
-  </div>
-  <div class="panel-body" *ngIf="!editUser">
-    {{user.firstName}} &nbsp; {{user.lastName}}
-    <button (click)="deleteUser()" style="float:right;color: red">Delete <i class="material-icons">cancel</i></button>
-    
-    <button (click)="toggleUserEditForm()" style="float:right;color: slategray">Edit <i class="fa fa-edit"></i></button> 
-  </div>
-
-  <div *ngIf="editUser">
-      <div class="panel panel-default">          
-          <div class="panel-heading"><span>Edit User Details</span></div>
-          <div class="panel-body">
-            <div>
-              First Name
-              <input
-                type="text"
-                name="firstName"
-                class="form-control input-md"
-                [(ngModel)]="user.firstName"
-                placeholder="First Name"
-                style="font-size:  inherit; font-weight:  bold;"
-                required>
-            </div>
-            <div>
-                Last Name
+    <div class="panel-heading">
+      {{user.userName}}
+    </div>
+    <div class="panel-body" *ngIf="!editUser">
+      {{user.firstName}} &nbsp; {{user.lastName}}
+      <button (click)="deleteUser()" style="float:right;color: red">Delete <i class="material-icons">cancel</i></button>
+      
+      <button (click)="toggleUserEditForm()" style="float:right;color: slategray">Edit <i class="fa fa-edit"></i></button> 
+    </div>
+  
+    <div *ngIf="editUser">
+        <div class="panel panel-default">          
+            <div class="panel-heading"><span>Edit User Details</span></div>
+            <div class="panel-body">
+              <div>
+                First Name
                 <input
                   type="text"
-                  name="lastName"
+                  name="firstName"
                   class="form-control input-md"
-                  [(ngModel)]="user.lastName"
-                  placeholder="Last Name"
+                  [(ngModel)]="user.firstName"
+                  placeholder="First Name"
+                  style="font-size:  inherit; font-weight:  bold;"
                   required>
+              </div>
+              <div>
+                  Last Name
+                  <input
+                    type="text"
+                    name="lastName"
+                    class="form-control input-md"
+                    [(ngModel)]="user.lastName"
+                    placeholder="Last Name"
+                    required>
+              </div>
+  
+              <div>
+                  User Name
+                  <input
+                    type="text"
+                    name="userName"
+                    class="form-control input-md"
+                    [(ngModel)]="user.userName"
+                    placeholder="User Name"
+                    required>
+              </div>
+  
+              <div>
+                  Password
+                  <input
+                    type="text"
+                    name="Password"
+                    class="form-control input-md"
+                    [(ngModel)]="user.password"
+                    placeholder="Password"
+                    type="password"
+                    required>
+              </div>
+              
+              <div>
+                <button type="button" (click)="UpdateUser()" class="btn btn-info">Update</button>
+                <button type="button" (click)="toggleUserEditForm()" class="btn btn-secondary">cancel</button>
+              </div>
+              
             </div>
-
-            <div>
-                User Name
-                <input
-                  type="text"
-                  name="userName"
-                  class="form-control input-md"
-                  [(ngModel)]="user.userName"
-                  placeholder="User Name"
-                  required>
-            </div>
-
-            <div>
-                Password
-                <input
-                  type="text"
-                  name="Password"
-                  class="form-control input-md"
-                  [(ngModel)]="user.password"
-                  placeholder="Password"
-                  required>
-            </div>
-            
-            <div>
-              <button type="button" (click)="UpdateUser()" class="btn btn-info">Update</button>
-              <button type="button" (click)="toggleUserEditForm()" class="btn btn-secondary">cancel</button>
-            </div>
-            
+                    
           </div>
-                  
-        </div>
-  </div>
+    </div>
