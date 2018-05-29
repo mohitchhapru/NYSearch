@@ -11,7 +11,7 @@
 
   <div *ngIf="editUser">
       <div class="panel panel-default">          
-          <div class="panel-heading" style="float: right">Edit User Details</div>
+          <div class="panel-heading"><span>Edit User Details</span></div>
           <div class="panel-body">
             <div>
               First Name
@@ -21,6 +21,7 @@
                 class="form-control input-md"
                 [(ngModel)]="user.firstName"
                 placeholder="First Name"
+                style="font-size:  inherit; font-weight:  bold;"
                 required>
             </div>
             <div>
@@ -56,8 +57,11 @@
                   required>
             </div>
             
-            <button type="button" (click)="UpdateUser()" class="btn btn-info">Update</button>
-            <button type="button" (click)="toggleUserEditForm()" class="btn btn-secondary">cancel</button>                    
+            <div>
+              <button type="button" (click)="UpdateUser()" class="btn btn-info">Update</button>
+              <button type="button" (click)="toggleUserEditForm()" class="btn btn-secondary">cancel</button>
+            </div>
+            
           </div>
                   
         </div>
