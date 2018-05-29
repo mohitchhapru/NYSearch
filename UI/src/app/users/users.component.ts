@@ -29,4 +29,16 @@ export class UsersComponent implements OnInit {
     this.showAddUserForm = !(this.showAddUserForm);    
   }
 
+  addNewUser(){
+    // console.log("Adding : "+this.userName+this.firstName+this.lastName);    
+    this.userService.addUser(this.firstName, this.lastName, this.userName, this.password).subscribe(res=>{
+      this.users.push(res.json());
+      this.userName="";
+      this.firstName="";
+      this.lastName="";
+      this.password="";
+      this.showAddUserForm = false;
+    })
+  }
+
 }

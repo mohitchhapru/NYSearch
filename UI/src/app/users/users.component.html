@@ -37,7 +37,7 @@
               type="button"
               class="close"
               aria-label="Close"
-              style="font-size: xx-large;margin-top: 0px;margin-bottom: 16px;"
+              style="font-size: xx-large;margin-top: 0px;margin-bottom: 16px;"              
               (click)="toggleAddUserForm()">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -47,6 +47,7 @@
               name="First Name"
               class="form-control input-md"
               placeholder="First Name"
+              [(ngModel)]="firstName"
               required>
 
             <input
@@ -54,6 +55,7 @@
               name="Last Name"
               class="form-control input-md"
               placeholder="Last Name"
+              [(ngModel)]="lastName"
               required>
 
             <input
@@ -61,6 +63,7 @@
               name="Username"
               class="form-control input-md"
               placeholder="Username"
+              [(ngModel)]="userName"
               required>
 
             <input
@@ -68,11 +71,13 @@
               name="Password"
               class="form-control input-md"
               placeholder="Password"
+              [(ngModel)]="password"
               required>
 
             <input
               type="button"
               value="Sign Up"
+              (click)="addNewUser()"
               class="btn btn-primary">
           </div>
 
