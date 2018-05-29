@@ -22,7 +22,7 @@ export class UsersService {
     
       deleteUser(id){
         console.log("Deleting user id "+id);
-        return this.http.delete(`/users/${id}`);
+        return this.http.delete(`${environment.apihost}/users/${id}`);
       }
     
       updateUser(id,firstName, lastName, userName, password){

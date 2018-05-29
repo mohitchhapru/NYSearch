@@ -18,5 +18,10 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
   }  
+
+  deleteUser(){
+    this.userService.deleteUser(this.user.id)
+    .subscribe(res=>this.user=null);
+  };
   
 }

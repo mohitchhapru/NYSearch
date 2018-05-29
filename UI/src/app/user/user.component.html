@@ -4,6 +4,7 @@
   </div>
   <div class="panel-body">
     {{user.firstName}} &nbsp; {{user.lastName}}
-    <button style="float:right;color: red">Delete <i class="material-icons">cancel</i></button>
+    <button (click)="deleteUser()" style="float:right;color: red">Delete <i class="material-icons">cancel</i></button>
+    
     <button style="float:right;color: slategray">Edit <i class="fa fa-edit"></i></button> 
   </div>
