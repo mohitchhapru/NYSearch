@@ -27,7 +27,7 @@ export class UsersService {
     
       updateUser(id,firstName, lastName, userName, password){
         console.log("Updating : "+userName+firstName+lastName);
-        return this.http.patch(`/users/${id}`,{          
+        return this.http.patch(`${environment.apihost}/users/${id}`,{
           "firstName":firstName,
           "lastName":lastName,
           "userName": userName,

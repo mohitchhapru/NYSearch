@@ -13,8 +13,11 @@ export class UserComponent implements OnInit {
   userName: String;
   firstName: String;
   lastName: String;
+  editUser: boolean;
 
-  constructor(private userService:UsersService) { }
+  constructor(private userService:UsersService) { 
+    this.editUser = false;
+  }
 
   ngOnInit() {
   }  
@@ -23,5 +26,18 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(this.user.id)
     .subscribe(res=>this.user=null);
   };
+
+  UpdateUser(){        
+    this.userService.updateUser(this.user.id, this.user.firstName, this.user.lastName, this.user.userName, this.user.password).subscribe(res=>{
+      this.user.userName=res.json().userName;
+      this.user.firstName=res.json().firstName;
+      this.user.lastName=res.json().lastName;
+      this.user.password = res.json().password;
+      this.editUser = false;
+    })   
+  }
   
+  toggleUserEditForm(){
+    this.editUser = !(this.editUser);
+  }
 }
