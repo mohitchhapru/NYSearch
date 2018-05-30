@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { PipeTransform, Pipe } from '@angular/core';
+import { debug } from 'util';
+import { BuiltinVar } from '@angular/compiler';
 
+@Pipe({name: 'keys'})
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
-  styleUrls: ['./event.component.css']
+  styleUrls: ['./event.component.css'],
 })
 export class EventComponent implements OnInit {
 
-  constructor() { }
+  @Input('eventdata')
+  eventdata: any; 
 
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    for (const prop in this.eventdata) {
+      if (this.eventdata.hasOwnProperty(prop)) {
+        console.log(`key : ${prop}, value :${this.eventdata[prop]}`);        
+      }
+    }
+    debugger;
+  }
 }

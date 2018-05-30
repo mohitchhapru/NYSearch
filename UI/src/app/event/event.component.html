@@ -2,14 +2,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 <div class="panel panel-primary">
-    <div class="panel-heading">Heading</div>
+    <div class="panel-heading">{{eventdata.short_title}}</div>
+        
     <div class="panel-body">
-      <div>asd</div>
-      <div>asd</div>
+    
     </div>
+
     <div class="panel-footer">&nbsp;
-      <span style="float: left;"> LEFT </span>
-      <span style="float: right;"> RIGHT </span>
+      <span style="float: left;"> {{ eventdata.start_date | date }} </span>
+      <span style="float: right;"> {{ eventdata.start_date | date }} </span>
     </div>
   </div>
