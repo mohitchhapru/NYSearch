@@ -12,8 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { EventComponent } from './event/event.component';
 
-import { InfiniteScrollModule } from "ngx-infinite-scroll";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+// import { InfiniteScrollModule } from "ngx-infinite-scroll";
+// import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
     BrowserModule,
     HttpModule,
     FormsModule,
-    InfiniteScrollModule,
+    // InfiniteScrollModule,
     RouterModule.forRoot([      
       {
         path: '',
@@ -45,4 +45,4 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 })
 export class AppModule { }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+// platformBrowserDynamic().bootstrapModule(AppModule);

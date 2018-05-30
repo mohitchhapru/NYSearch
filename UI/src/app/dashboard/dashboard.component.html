@@ -6,6 +6,42 @@
   dashboard works!
 </p>
 
-<app-event       
-      style=" width: 51%; float: right; "
-      *ngFor="let eventdata of NYCopendata" [eventdata]='eventdata'></app-event>
+<header style="background-color: red;height: 100px;">
+  <nav>
+    <ul>
+      <li>Your menu</li>
+    </ul>
+  </nav>
+</header>
+
+<section style="width: 100%;">
+
+  <article style="display: inline-block;
+  width: 30%;
+  height: 200px;
+  background-color: aqua;">
+    
+  </article>
+  
+  <article style="display: inline-block;
+  width: 60%;
+  height: 600px;
+  background-color: gray;overflow:scroll;">
+  <app-event       
+  style="width:100%; float:right; "
+  *ngFor="let eventdata of NYCopendata" [eventdata]='eventdata'></app-event>    
+  </article>
+  
+</section>
+
+<aside>
+  <h2>About section</h2>
+  <p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</aside>
+
+<footer>
+  <p>Copyright 2009 Your name</p>
+</footer>
+
+
+
