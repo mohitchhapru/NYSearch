@@ -10,13 +10,15 @@ import { UsersService } from './users.service';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
