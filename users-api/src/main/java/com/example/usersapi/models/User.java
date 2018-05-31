@@ -30,4 +30,32 @@ public class User {
         this.userName = userName;
         this.password = password;
     }
+
+    // getter
+    public String getFirstName(){
+        return this.firstName;
+    }
+    public String getLastName(){
+        return this.lastName;
+    }
+    public String getUserName(){
+        return this.userName;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+
+    //setter
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName){
+        this.lastName = lastName;
+    }
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
 }
