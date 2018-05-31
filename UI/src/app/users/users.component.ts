@@ -46,7 +46,7 @@ export class UsersComponent implements OnInit {
   }
 
   login(){
-    console.log("UserName: " + this.loginUserName + " Pass: " + this.loginPassword);    
+    // console.log("UserName: " + this.loginUserName + " Pass: " + this.loginPassword);    
     this.userfound = false;
     this.users.forEach(element => {
       if(this.loginUserName == element.userName && this.loginPassword == element.password){         
@@ -54,7 +54,7 @@ export class UsersComponent implements OnInit {
       }      
     });
 
-    if(this.userfound == true){
+    if(this.userfound && true){
       // alert ("user present");
       this.showWrongCredentialMessage = false;
     }
