@@ -11,9 +11,13 @@ export class UsersComponent implements OnInit {
   showAddUserForm: boolean;
   users:any;
   userName: String;
+  loginUserName: String;
   firstName: String;
   lastName: String;
   password: String;
+  loginPassword: String;
+  userfound: boolean;
+  showWrongCredentialMessage: boolean;
 
   constructor(private userService:UsersService) {
     this.showAddUserForm = false;
@@ -30,7 +34,7 @@ export class UsersComponent implements OnInit {
   }
 
   addNewUser(){
-    // console.log("Adding : "+this.userName+this.firstName+this.lastName);    
+    // console.log("Adding : "+this.userName+this.firstName+this.lastName);     
     this.userService.addUser(this.firstName, this.lastName, this.userName, this.password).subscribe(res=>{
       this.users.push(res.json());
       this.userName="";
@@ -41,4 +45,21 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  login(){
+    console.log("UserName: " + this.loginUserName + " Pass: " + this.loginPassword);    
+    this.users.forEach(element => {
+      if(this.loginUserName == element.userName && this.loginPassword == element.password){         
+        this.userfound = true;
+      }      
+    });
+
+    if(this.userfound == true){
+      alert ("user present");
+      this.showWrongCredentialMessage = false;
+    }
+    else{
+      this.showWrongCredentialMessage = true;
+    }
+
+  }
 }
