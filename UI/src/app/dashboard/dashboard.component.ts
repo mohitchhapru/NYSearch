@@ -8,14 +8,31 @@ import {UsersService} from '../users.service';
 })
 export class DashboardComponent implements OnInit {
 
-  NYCopendata:any;
+  public NYCopendata:any;
+  searchword: String;
+  edited: any; // to ask
 
   constructor(private userService:UsersService) {
-    this.userService.getNYCityOpenData().subscribe(res => this.NYCopendata=res.json());
+    // this.userService.getNYCityOpenData().subscribe(res => this.NYCopendata=res.json());
   }  
 
   ngOnInit() {
-
+    this.userService.getNYCityOpenData().toPromise()
+    .then(res => this.NYCopendata=res.json());    
+      this.edited = false
   }
 
+  filter_search(searchword){
+    var view_box=[];
+    if(this.NYCopendata!=undefined){
+      this.NYCopendata.forEach(element => {        
+        if(searchword !=undefined){
+          if(element['agency_name'].toLowerCase().search(searchword.toLowerCase())>=0){
+            view_box.push(element);
+          }
+        }
+      });
+     }    
+    return view_box;
+  }
 }

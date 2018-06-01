@@ -4,14 +4,21 @@
 
 
 <div class="panel panel-primary">
-    <div class="panel-heading">{{eventdata.short_title}}</div>
-        
-    <div class="panel-body">
-    
-    </div>
+  <div class="panel-heading">{{eventdata.short_title}}</div>
 
-    <div class="panel-footer">&nbsp;
-      <span style="float: left;"> {{ eventdata.start_date | date }} </span>
-      <span style="float: right;"> {{ eventdata.start_date | date }} </span>
-    </div>
+  <div *ngIf="eventdata.section_name" class="panel-body"> <span>Section Name: </span> {{eventdata.section_name}}</div>
+  <div *ngIf="eventdata.agency_name" class="panel-body"> <span>Agency Name: </span> {{eventdata.agency_name}}</div>
+  <div *ngIf="eventdata.category_description" class="panel-body"> <span>Category Description: </span> {{eventdata.category_description}}</div>
+  <div *ngIf="eventdata.selection_method_description" class="panel-body"> <span>Selection Method: </span> {{eventdata.selection_method_description}}</div>
+  <div *ngIf="eventdata.type_of_notice_description" class="panel-body"> <span>Notice Description: </span> {{eventdata.type_of_notice_description}}</div>              
+  <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div>
+  <div *ngIf="eventdata.other_info_1" class="panel-body">Description: {{eventdata.other_info_1}}</div>
+  <div *ngIf="eventdata.other_info_1" class="ui block ">PrintOuts: {{eventdata.printout_1}}</div>
+  <div *ngIf="eventdata.vendor_name" class="panel-body">Person: {{eventdata.vendor_name}}</div>
+  <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div>
+
+  <div class="panel-footer">&nbsp;
+    <span style="float: left;"> {{ eventdata.start_date | date }} </span>
+    <span style="float: right;"> {{ eventdata.start_date | date }} </span>
   </div>
+</div>
