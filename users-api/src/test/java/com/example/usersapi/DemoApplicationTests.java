@@ -25,7 +25,6 @@ import static java.time.zone.ZoneRulesProvider.refresh;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class DemoApplicationTests {
-
 	User firstUser;
 	User secondUser;
 
@@ -47,8 +46,7 @@ public class DemoApplicationTests {
 		System.setProperty("selenide.browser", "Chrome");
 		System.setProperty("selenide.headless", "false");
 
-		// Visit the UI in a browser
-		open("http://localhost:4200");
+		open("http://localhost:4200");		// Visit the UI in a browser
 	}
 
 	@After
@@ -56,13 +54,8 @@ public class DemoApplicationTests {
 		userRepository.deleteAll();
 	}
 
-/*	@Test
-	public void contextLoads() {
-	} */
-
 	@Test
 	public void testAddaUser() throws Exception {
-
 		long secondUserId = secondUser.getId();
 
 		$("#btnSignUp").click();
@@ -74,13 +67,10 @@ public class DemoApplicationTests {
 		$("#password-input").sendKeys("pass3");
 		$("#add-user").click();
 
-		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));
+		$$(".data-user-display").shouldHave(CollectionCondition.size(3));
 		refresh();
-
-		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));
-
-		Long thirdUserId = secondUserId + 1;
-		$("#user-" + thirdUserId).shouldHave(text("Third User"));
+		$$(".data-user-display").shouldHave(CollectionCondition.size(3));   	// verify after refresh
 	}
+
 
 }
