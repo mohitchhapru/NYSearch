@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../users.service';
 import { UserComponent} from '../user/user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -8,6 +9,7 @@ import { UserComponent} from '../user/user.component';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  
   showAddUserForm: boolean;
   users:any;
   userName: String;
@@ -20,7 +22,7 @@ export class UsersComponent implements OnInit {
   showWrongCredentialMessage: boolean;
   showAllUsers: boolean;
 
-  constructor(private userService:UsersService) {
+  constructor(private userService:UsersService, public router: Router) {
     this.showAddUserForm = false;
     this.showAllUsers = false;
    }
@@ -59,6 +61,9 @@ export class UsersComponent implements OnInit {
     if(this.userfound && true){
       // alert ("user present");
       this.showWrongCredentialMessage = false;
+
+      // navigate to search    
+      this.router.navigate(['./nysearch']);
     }
     else{
       this.showWrongCredentialMessage = true;
@@ -73,5 +78,5 @@ export class UsersComponent implements OnInit {
   displayAllUsersSection(){
     this.showAllUsers = true;
   }
-  
+
 }
