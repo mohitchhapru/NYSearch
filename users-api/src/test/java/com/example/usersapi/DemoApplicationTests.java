@@ -55,7 +55,12 @@ public class DemoApplicationTests {
 	}
 
 	@Test
-	public void testAddaUser() throws Exception {
+	public void v1testUserCount() throws Exception {
+		$$(".data-user-display").shouldHave(CollectionCondition.size(2));
+	}
+
+	@Test
+	public void v2testAddaUser() throws Exception {
 		long secondUserId = secondUser.getId();
 
 		$("#btnSignUp").click();
@@ -71,6 +76,7 @@ public class DemoApplicationTests {
 		refresh();
 		$$(".data-user-display").shouldHave(CollectionCondition.size(3));   	// verify after refresh
 	}
+
 
 
 }
