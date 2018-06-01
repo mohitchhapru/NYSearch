@@ -36,6 +36,7 @@
             <input
               type="button"
               class="btn btn-lg btn-light btn-block"
+              id="btnSignUp"
               value="Sign Up"
               (click)="toggleAddUserForm()">
           </div>
@@ -88,8 +89,7 @@
               required>
 
             <input
-              type="button"
-              id="btnSignUp"
+              type="button"              
               value="Sign Up"
               id="add-user"
               (click)="addNewUser()"
@@ -102,9 +102,12 @@
 
     <div
     style="height: 60px;"></div>
-    <app-user       
-      style=" width: 51%; float: right; "
-      *ngFor="let user of users" [user]='user'></app-user>
+
+    <div>
+      <app-user class="data-user-display"
+        style=" width: 51%; float: right; "
+        *ngFor="let user of users" [user]='user'></app-user>
+    </div>
 
   </div>
 </div>
