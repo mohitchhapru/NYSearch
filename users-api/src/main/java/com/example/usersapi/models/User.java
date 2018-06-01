@@ -24,7 +24,7 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    //public User(){}
+    public User(){}
 
     public User(String firstName, String lastName, String userName, String password) {
         this.firstName = firstName;
@@ -34,7 +34,7 @@ public class User {
     }
 
     // getter
-    /*public String getFirstName(){
+    public String getFirstName(){
         return this.firstName;
     }
     public String getLastName(){
@@ -45,6 +45,9 @@ public class User {
     }
     public String getPassword(){
         return this.password;
+    }
+    public Long getId(){
+        return this.id;
     }
 
     //setter
@@ -59,5 +62,5 @@ public class User {
     }
     public void setPassword(String password){
         this.password = password;
-    }*/
+    }
 }

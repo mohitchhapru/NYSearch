@@ -56,6 +56,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void v1testUserCount() throws Exception {
+		$("#navAdminView").click();
 		$$("[data-user-display]").shouldHave(CollectionCondition.size(2));
 	}
 
@@ -72,8 +73,10 @@ public class DemoApplicationTests {
 		$("#password-input").sendKeys("pass3");
 		$("#add-user").click();
 
+		$("#navAdminView").click();
 		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));
 		refresh();
+		$("#navAdminView").click();
 		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));   	// verify after refresh
 	}
 
