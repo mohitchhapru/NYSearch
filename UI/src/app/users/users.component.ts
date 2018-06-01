@@ -18,9 +18,11 @@ export class UsersComponent implements OnInit {
   loginPassword: String;
   userfound: boolean;
   showWrongCredentialMessage: boolean;
+  showAllUsers: boolean;
 
   constructor(private userService:UsersService) {
     this.showAddUserForm = false;
+    this.showAllUsers = false;
    }
 
   ngOnInit() {
@@ -63,4 +65,13 @@ export class UsersComponent implements OnInit {
     }
 
   }
+
+  displayLoginSection(){
+    this.showAllUsers = false;
+  }
+
+  displayAllUsersSection(){
+    this.showAllUsers = true;
+  }
+  
 }

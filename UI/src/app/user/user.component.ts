@@ -16,9 +16,9 @@ export class UserComponent implements OnInit {
   editUser: boolean;
 
   constructor(private userService:UsersService) { 
-    this.editUser = false;
+    this.editUser = false;    
   }
-
+  
   ngOnInit() {
   }  
 
@@ -36,7 +36,7 @@ export class UserComponent implements OnInit {
       this.editUser = false;
     })   
   }
-  
+
   toggleUserEditForm(){
     this.editUser = !(this.editUser);
   }
