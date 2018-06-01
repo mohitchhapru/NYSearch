@@ -56,7 +56,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void v1testUserCount() throws Exception {
-		$$(".data-user-display").shouldHave(CollectionCondition.size(2));
+		$$("[data-user-display]").shouldHave(CollectionCondition.size(2));
 	}
 
 	@Test
@@ -72,11 +72,10 @@ public class DemoApplicationTests {
 		$("#password-input").sendKeys("pass3");
 		$("#add-user").click();
 
-		$$(".data-user-display").shouldHave(CollectionCondition.size(3));
+		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));
 		refresh();
-		$$(".data-user-display").shouldHave(CollectionCondition.size(3));   	// verify after refresh
+		$$("[data-user-display]").shouldHave(CollectionCondition.size(3));   	// verify after refresh
 	}
-
 
 
 }
