@@ -3,31 +3,81 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <header>
-<img src="../../assets/animation.gif" width="100%">
+  <img src="../../assets/animation.gif" width="100%">
 </header>
 
 
-<section style="width: 100%;">  
+<section style="width: 100%;">
 
-  <!-- Sidebar/menu Ref. w3 Schools -->
-<nav style="width: 20%; display: inline-block; float: left;">
-  <div class="w3-bar-block">
-    <a id="navHome" class="w3-bar-item w3-button w3-hover-white"> HOME </a> 
-    <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-    <!-- <a id="navAdminView" href="#showcase" (click)="displayAllUsersSection()" class="w3-bar-item w3-button w3-hover-white"></a>      -->
+  <!-- <nav style="width: 20%; display: inline-block; float: left;">
+    <div class="w3-bar-block">
+      <a id="navHome" class="w3-bar-item w3-button w3-hover-white"> HOME </a>    
+    </div>
+  </nav> -->
+
+  <div style="display: inline-block;padding-right: 15px;padding-left: 15px;width: 40%;float:left;">
+    <input type="text" id="searchInput" style="width: 100%" [(ngModel)]="searchword" placeholder="Search for Events" title="Type in a name">
+
+    <article>
+      <!-- The below code was used to create new event component for each component  -->
+      <!-- <app-event       
+            style="width:100%; float:right; "
+            *ngFor="let eventdata of filter_search(searchword)" [eventdata]='eventdata'></app-event> -->
+
+      <div class="panel panel-primary" *ngFor="let eventdata of filter_search(searchword)">
+        <div class="panel-heading">{{eventdata.short_title}}</div>
+
+        <!-- User Profile -->
+        <!-- <div style="
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    ">
+          <img src="../../assets/user.png" alt="John" style="width:100%">
+          <h1>John Doe</h1>
+          <p class="title">CEO & Founder, Example</p>
+          <p>Harvard University</p>
+          <div style="margin: 24px 0;">
+            <a href="#">
+              <i class="fa fa-dribbble"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </div>
+          <p>
+            <button>Contact</button>
+          </p>
+        </div> -->
+
+        <!-- <div *ngIf="eventdata.section_name" class="panel-body"> <span>Section Name: </span> {{eventdata.section_name}}</div>
+    <div *ngIf="eventdata.agency_name" class="panel-body"> <span>Agency Name: </span> {{eventdata.agency_name}}</div>
+    <div *ngIf="eventdata.category_description" class="panel-body"> <span>Category Description: </span> {{eventdata.category_description}}</div>
+    <div *ngIf="eventdata.selection_method_description" class="panel-body"> <span>Selection Method: </span> {{eventdata.selection_method_description}}</div>
+    <div *ngIf="eventdata.type_of_notice_description" class="panel-body"> <span>Notice Description: </span> {{eventdata.type_of_notice_description}}</div>              
+    <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div>
+    <div *ngIf="eventdata.other_info_1" class="panel-body">Description: {{eventdata.other_info_1}}</div>
+    <div *ngIf="eventdata.other_info_1" class="ui block ">PrintOuts: {{eventdata.printout_1}}</div>
+    <div *ngIf="eventdata.vendor_name" class="panel-body">Person: {{eventdata.vendor_name}}</div>
+    <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div> -->
+        <div class="panel-footer">&nbsp;
+          <span style="float: left;"> {{ eventdata.start_date | date }} </span>
+          <span style="float: right;"> {{ eventdata.start_date | date }} </span>
+        </div>
+      </div>
+    </article>
+
   </div>
-</nav>
+  <div style="height: 300px;background-color: darkred;width: 60%;float: right;padding-left:  15px;padding-right:  15px;">
 
-<div style="display: inline-block;width: 80%;">
-<input type="text" id="searchInput" [(ngModel)] = "searchword" placeholder="Search for Events" title="Type in a name">  
-<button type="button" class="btn btn-info">Search</button>
+  </div>
 
-<article>
-  <app-event       
-  style="width:100%; float:right; "
-  *ngFor="let eventdata of filter_search(searchword)" [eventdata]='eventdata'></app-event>    
-</article>
-
-</div>
-  
 </section>
