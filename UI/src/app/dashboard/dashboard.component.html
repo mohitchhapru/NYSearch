@@ -19,66 +19,54 @@
     <input type="text" id="searchInput" style="width: 100%" [(ngModel)]="searchword" placeholder="Search for Events" title="Type in a name">
 
     <article>
-      
+
       <!-- The below code was used to create new event component for each component  -->
       <!-- <app-event       
             style="width:100%; float:right; "
             *ngFor="let eventdata of filter_search(searchword)" [eventdata]='eventdata'></app-event> -->
 
-      <div class="panel panel-primary" *ngFor="let eventdata of filter_search(searchword)">
-        <div class="panel-heading">{{eventdata.short_title}}</div>
-
-        <!-- User Profile -->
-        <!-- <div style="
-        display: inline-block;
-        margin-left: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-    ">
-          <img src="../../assets/user.png" alt="John" style="width:100%">
-          <h1>John Doe</h1>
-          <p class="title">CEO & Founder, Example</p>
-          <p>Harvard University</p>
-          <div style="margin: 24px 0;">
-            <a href="#">
-              <i class="fa fa-dribbble"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="#">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </div>
-          <p>
-            <button>Contact</button>
-          </p>
-        </div> -->
-
-        <!-- <div *ngIf="eventdata.section_name" class="panel-body"> <span>Section Name: </span> {{eventdata.section_name}}</div>
-    <div *ngIf="eventdata.agency_name" class="panel-body"> <span>Agency Name: </span> {{eventdata.agency_name}}</div>
-    <div *ngIf="eventdata.category_description" class="panel-body"> <span>Category Description: </span> {{eventdata.category_description}}</div>
-    <div *ngIf="eventdata.selection_method_description" class="panel-body"> <span>Selection Method: </span> {{eventdata.selection_method_description}}</div>
-    <div *ngIf="eventdata.type_of_notice_description" class="panel-body"> <span>Notice Description: </span> {{eventdata.type_of_notice_description}}</div>              
-    <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div>
-    <div *ngIf="eventdata.other_info_1" class="panel-body">Description: {{eventdata.other_info_1}}</div>
-    <div *ngIf="eventdata.other_info_1" class="ui block ">PrintOuts: {{eventdata.printout_1}}</div>
-    <div *ngIf="eventdata.vendor_name" class="panel-body">Person: {{eventdata.vendor_name}}</div>
-    <div *ngIf="eventdata.vendor_address" class="panel-body">Address: {{eventdata.vendor_address}}</div> -->
+      <div class="panel panel-primary" *ngFor="let eventdata of filter_search(searchword)" (click)="displayDetails(eventdata.request_id)">          
+        <div class="panel-heading">{{eventdata.section_name}}</div>
         <div class="panel-footer">&nbsp;
-          <span style="float: left;"> {{ eventdata.start_date | date }} </span>
-          <span style="float: right;"> {{ eventdata.start_date | date }} </span>
+          <span style="float: left;">{{eventdata.agency_name}}</span>          
         </div>
       </div>
     </article>
 
   </div>
-  <div style="height: 300px;background-color: darkred;width: 60%;float: right;padding-left:  15px;padding-right:  15px;">
+  <div *ngIf="edited" style="width: 60%;float: right;padding-left:  15px;padding-right:  15px;">
+    <!-- User Profile -->
+    <div style="display: inline-block;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px; width: 40%;"
+      *ngFor="let info of ContactInformation">
+      <img src="../../assets/user.png" alt="John" style="width:100%">
+      <h1>{{info._employee_name}}</h1>
+      <div>Provisional Status: {{info._provisional_statu}}</div>
+      <div>Reason For Change: {{info._reason_for_change}}</div>
+      <div>Salary: ${{info._salary}}</div>
+      <div>Effective Date: {{info.effective_date}}</div>
+    </div>
 
+    <div style="display: inline-block;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px; width: 60%;float:inherit;">
+
+        <!-- {{eventdata.short_title}} -->
+      <div *ngIf="displayData.section_name" class="panel-body">
+        <span>Section Name: </span> {{displayData.section_name}}</div>
+      <div *ngIf="displayData.agency_name" class="panel-body">
+        <span>Agency Name: </span> {{displayData.agency_name}}</div>
+      <div *ngIf="displayData.category_description" class="panel-body">
+        <span>Category Description: </span> {{displayData.category_description}}</div>
+      <div *ngIf="displayData.selection_method_description" class="panel-body">
+        <span>Selection Method: </span> {{displayData.selection_method_description}}</div>
+      <div *ngIf="displayData.type_of_notice_description" class="panel-body">
+        <span>Notice Description: </span> {{displayData.type_of_notice_description}}</div>
+      <div *ngIf="displayData.vendor_address" class="panel-body">Address: {{displayData.vendor_address}}</div>
+      <div *ngIf="displayData.other_info_1" class="panel-body">Description: {{displayData.other_info_1}}</div>
+      <div *ngIf="displayData.other_info_1" class="ui block ">PrintOuts: {{displayData.printout_1}}</div>
+      <div *ngIf="displayData.vendor_name" class="panel-body">Person: {{displayData.vendor_name}}</div>
+      <div *ngIf="displayData.vendor_address" class="panel-body">Address: {{displayData.vendor_address}}</div>
+
+      <!-- {{ eventdata.start_date | date }} {{ eventdata.start_date | date }} -->
+    </div>
   </div>
 
 </section>
