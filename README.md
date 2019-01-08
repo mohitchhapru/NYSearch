@@ -6,7 +6,7 @@ How to start locally:
 	* Start Back-End:
 		- cd NYSearch/api-gateway/
 		- ./gradlew  // wraper command to build
-    - (Please follow same steps for "eureka-server" and "users-api" project
+    		- (Please follow same steps for "eureka-server" and "users-api" project
 		- docker-compose up // on NYSearch root directory		
 	* Front-End
 		- navigate to UI directory
